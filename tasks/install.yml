@@ -9,6 +9,11 @@
     group: "{{ cantaloupe_group }}"
     creates: "{{ cantaloupe_install_root }}/cantaloupe-{{ cantaloupe_version }}"
 
+- name: Remove temporary Canatloupe directory
+  file:
+    path: /opt/cantaloupe
+    state: absent
+
 - name: Create Cantaloupe symlink
   file:
     state: link
